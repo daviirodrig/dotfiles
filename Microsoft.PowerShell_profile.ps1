@@ -1,5 +1,9 @@
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 function proj {Set-Location D:/Projects}
+function which {
+	param ($cmd)
+	Get-Command $cmd | Select-Object -ExpandProperty Definition
+}
 function new-proj {
 	param (
 		$name
@@ -8,6 +12,10 @@ function new-proj {
 	mkdir $name
 	cd $name
 	code .
+}
+function spotify-ad {
+	# https://github.com/mrpond/BlockTheSpot
+	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-Expression "& { $(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/mrpond/BlockTheSpot/master/install.ps1') } -UninstallSpotifyStoreEdition -RemoveAdPlaceholder"
 }
 function mitm {
 	$tmp = Get-Location
