@@ -3,8 +3,8 @@ Set-PSReadLineOption -PredictionSource History
 Remove-Item alias:cat -Force
 Remove-Item alias:ls -Force
 function proj { Set-Location D:/Projects }
-function which ($c) { Get-Command $cmd | Select-Object -ExpandProperty Definition }
-function yt-mp3 ($c) { youtube-dl --extract-audio --audio-format mp3 $p }
+function which ($c) { Get-Command $c | Select-Object -ExpandProperty Definition }
+function yt-mp3 ($c) { youtube-dl --extract-audio --audio-format mp3 $c }
 function cat ($c) { bat -pp --paging=never $c }
 function ls ($c) { PowerColorLS $c }
 # https://github.com/mrpond/BlockTheSpot
