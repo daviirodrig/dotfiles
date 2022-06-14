@@ -8,13 +8,18 @@ export MICRO_TRUECOLOR=1
 #ZSH_THEME="half-life"
 ZSH_THEME="steeef"
 
-plugins=(git)
+plugins=(git, zsh-syntax-highlighting, zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias cat="bat -pp --paging=never"
+if command -v batcat &> /dev/null; then
+  alias cat="batcat -pp --paging=never"
+elif command -v bat &> /dev/null; then
+  alias cat="bat -pp --paging=never"
+fi
+
 export DISPLAY=:0
 alias btop="btop --utf-force"
