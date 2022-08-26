@@ -10,6 +10,10 @@ echo "Installing bat"
 sudo apt-get install -y bat
 batcat --version
 
+echo "Installing btop"
+sudo apt-get install -y btop
+btop --version
+
 echo "Installing oh-my-zsh"
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
