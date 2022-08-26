@@ -15,6 +15,8 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+bindkey '^H' backward-kill-word
+
 alias cat="bat -pp --paging=never"
 
 alias btop="btop --utf-force"
